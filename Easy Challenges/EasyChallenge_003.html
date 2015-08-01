@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <title>Easy Challenge #003</title>
+</head>
+
+<body>
+  <h3>Enter message to be encoded:</h3>
+
+  <form>
+    <input type="text" placeholder="Message" id="msg"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var cipher = ["s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r"];
+
+  var message = document.getElementById("msg").value.toLowerCase();
+  var encodedMessage = "";
+
+  for(var i=0;i<message.length;i++){
+    encodedMessage += (message[i] === ' ') ? ' ' : cipher[message.charCodeAt(i)-97];
+  }
+
+  console.log(encodedMessage);
+};
+</script>
+</body>
+
+</html>

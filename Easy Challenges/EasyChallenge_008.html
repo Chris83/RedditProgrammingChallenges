@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>Easy Challenge #008</title>
+</head>
+
+<body>
+  <h3>Want To Hear 99 Bottles?</h3>
+
+  <form>
+    <input type="button" value="Yes!" onclick="run();">
+  </form>
+
+  <div id="singer"></div>
+
+<script type="text/javascript">
+var run = function(){
+  var singer = document.getElementById("singer");
+
+  for(var i=99; i>=0; i--){
+    if(i === 1){
+      singer.innerHTML += i + " bottle of beer on the wall, " + i + " bottle of beer, you take it down, pass it around, ";
+    }else{
+      singer.innerHTML += i + " bottles of beer on the wall";
+      if(i != 0) singer.innerHTML += ", " + i + " bottles of beer, you take one down, pass it around, ";
+      else singer.innerHTML += ".";
+    }
+  }
+};
+</script>
+</body>
+
+</html>

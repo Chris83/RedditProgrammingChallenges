@@ -1,0 +1,46 @@
+<html>
+
+<head>
+  <title>Easy Challenge #007</title>
+</head>
+
+<body>
+  <h3>Enter Morse Code to be Translated:</h3>
+
+  <form>
+    <input type="text" placeholder="Morse Code" id="morse"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var morseCode = document.getElementById("morse").value;
+
+  var morseTranslator = {".-" : "a", "-..." : "b", "-.-." : "c",
+                         "-.." : "d", "." : "e", "..-." : "f",
+                         "--." : "g", "...." : "h", ".." : "i",
+                         ".---" : "j", "-.-" : "k", ".-.." : "l",
+                         "--" : "m", "-." : "n", "---" : "o",
+                         ".--." : "p", "--.-" : "q", ".-." : "r",
+                         "..." : "s", "-" : "t", "..-" : "u",
+                         "...-" : "v", ".--" : "w", "-..-" : "x",
+                         "-.--" : "y", "--.." : "z"};
+
+  var morseWords = morseCode.split(" / ");
+
+  var readableMessage = "";
+
+  for(var i=0; i<morseWords.length; i++){
+    var morseLetters = morseWords[i].split(" ");
+    for(var j=0; j<morseLetters.length; j++){
+      readableMessage += morseTranslator[morseLetters[j]];
+    }
+    readableMessage += " ";
+  }
+
+  console.log(readableMessage);
+};
+</script>
+</body>
+
+</html>
