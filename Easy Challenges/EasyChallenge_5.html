@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <title>Easy Challenge #005</title>
+</head>
+
+<body>
+  <h3>Enter Your Login Information:</h3>
+
+  <form>
+    <input type="text" placeholder="Username" id="user"></input>
+    <input type="password" placeholder="Password" id="pass"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var username = document.getElementById("user").value;
+  var password = document.getElementById("pass").value;
+
+  if (username === "admin" && password === "password") console.log("You're in!");
+  else console.log("Try again...");
+};
+</script>
+</body>
+
+</html>

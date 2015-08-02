@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>Easy Challenge #001</title>
+</head>
+
+<body>
+  <h3>Enter the values:</h3>
+
+  <form>
+    <input type="text" placeholder="Name" id="name"></input>
+    <input type="text" placeholder="Username" id="username"></input>
+    <input type="text" placeholder="Age" id="age"></input>
+    <input type="Button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var name = document.getElementById("name").value;
+  var username = document.getElementById("username").value;
+  var age = document.getElementById("age").value;
+
+  console.log("your name is " + name + ", you are " + age + " years old, and your username is " +username);
+};
+</script>
+</body>
+
+</html>

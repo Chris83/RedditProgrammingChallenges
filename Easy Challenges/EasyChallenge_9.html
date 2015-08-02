@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>Easy Challenge #009</title>
+</head>
+
+<body>
+  <h3>Enter the Numbers or Words You Want Sorted(separated with spaces):</h3>
+
+  <form>
+    <input type="text" placeholder="Unsorted Data" id="data"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var list = document.getElementById("data").value;
+
+  list = list.split(" ");
+
+  list = (isNaN(list[0])) ? list.sort().join() : list.sort(function(a, b){return a-b;}).join();
+
+  console.log(list);
+};
+</script>
+</body>
+
+</html>

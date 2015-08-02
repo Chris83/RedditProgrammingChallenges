@@ -1,0 +1,45 @@
+<html>
+
+<head>
+  <title>Easy Challenge #012</title>
+</head>
+
+<body>
+  <h3>Enter String for Permutations:</h3>
+
+  <form>
+    <input type="text" placeholder="Any String" id="str"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+  <div id="perms"></div>
+
+<script type="text/javascript">
+var run = function(){
+  var string = document.getElementById("str").value;
+
+  var permutations = [];
+  var used = [];
+
+  var permuteString = function(str){
+    var chars = str.split("");
+    for(var i=0; i<chars.length; i++){
+      var char = chars.splice(i, 1);
+      used.push(char);
+      if(chars.length === 0){
+        permutations[permutations.length] = used.join("");
+      }
+      permuteString(chars.join(""));
+      chars.splice(i, 0, char);
+      used.pop();
+    }
+  };
+
+  permuteString(string);
+
+  console.log(permutations.join(", "));
+};
+</script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <title>Easy Challenge #004</title>
+</head>
+
+<body>
+  <h3>Enter the values:</h3>
+
+  <form>
+    <input type="text" placeholder="Number of Passwords" id="num"></input>
+    <input type="text" placeholder="Password Length" id="len"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var passwordCharacters = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  var numberOfPasswords = document.getElementById("num").value;
+  numberOfPasswords = (numberOfPasswords === "") ? 1 : numberOfPasswords;
+  var passwordLength = document.getElementById("len").value;
+  passwordLength = (passwordLength === "") ? 8 : passwordLength;
+
+  for(var i=0; i<numberOfPasswords; i++){
+    var password = "";
+    for(var j=0; j<passwordLength; j++){
+      password += passwordCharacters[Math.floor((Math.random() * 62))];
+    }
+    console.log(i+1 + ": " + password);
+  }
+};
+</script>
+</body>
+
+</html>

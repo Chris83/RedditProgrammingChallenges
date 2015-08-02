@@ -1,0 +1,30 @@
+<html>
+
+<head>
+  <title>Easy Challenge #002</title>
+</head>
+
+<body>
+  <h3>Enter message o be encoded:</h3>
+
+  <form>
+    <input type="text" placeholder="Message" id="msg"></input>
+    <input type="text" placeholder="Mass" id="m"></input>
+    <input type="text" placeholder="Acceleration" id="a"></input>
+    <input type="Button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var F = document.getElementById("f").value;
+  var M = document.getElementById("m").value;
+  var A = document.getElementById("a").value;
+
+  if(F === "") console.log("F = " + M*A);
+  else if(M === "") console.log("M = " + F/A);
+  else if(A === "") console.log("A = " + F/M);
+};
+</script>
+</body>
+
+</html>
