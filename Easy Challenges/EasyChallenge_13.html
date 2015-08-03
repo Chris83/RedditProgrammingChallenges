@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>Easy Challenge #013</title>
+</head>
+
+<body>
+  <h3>Find Out What Day of the Year Is:</h3>
+
+  <form>
+    <input type="text" placeholder="Month" id="m"></input>
+    <input type="text" placeholder="Day" id="d"></input>
+    <input type="checkbox" id="leap"> Leap Year<br>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+  <div id="perms"></div>
+
+<script type="text/javascript">
+var run = function(){
+  var month = document.getElementById("m").value;
+  var day = document.getElementById("d").value;
+  var leapYear = document.getElementById("leap").checked;
+
+  var monthHelper = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+ var dayNumber = Number(day);
+
+ for(var i=0; i<month; i++){
+   dayNumber += monthHelper[i];
+ }
+
+ if(leapYear && month > 2){
+   dayNumber++;
+ }
+
+ console.log(dayNumber);
+};
+</script>
+</body>
+
+</html>

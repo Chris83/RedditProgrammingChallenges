@@ -1,0 +1,26 @@
+<html>
+
+<head>
+  <title>Easy Challenge #016</title>
+</head>
+
+<body>
+  <h3>Enter a string and another string of characters to be removed:</h3>
+
+  <form>
+    <input type="text" placeholder="String" id="data"></input>
+    <input type="text" placeholder="Stuff to Remove" id="remove"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var remove = "["+document.getElementById("remove").value+"]+";
+  var text = document.getElementById("data").value.replace(new RegExp(remove, "g"), '');
+
+  console.log(text);
+};
+</script>
+</body>
+
+</html>

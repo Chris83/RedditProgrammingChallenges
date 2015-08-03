@@ -1,0 +1,53 @@
+<html>
+
+<head>
+  <title>Easy Challenge #015</title>
+</head>
+
+<body>
+  <h3>Enter Items You Want Reversed:</h3>
+
+  <form>
+    <textarea placeholder="Enter Text Data Here" id="data" rows="5" cols="50"></textarea>
+    <input type="radio" name="justify" value="left" id="left" checked>Justify Left
+    <input type="radio" name="justify" value="right"> Justify Right
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+  <br><br>
+  <textarea placeholder="Justified text will show here." rows="5" cols="50" id="text"></textarea>
+
+<script type="text/javascript">
+var run = function(){
+  var text = document.getElementById("data").value;
+  var justifyLeft = document.getElementById("left").checked;
+
+  text = text.split('\n');
+
+  var maxSize = 0;
+  for(var i=0; i<text.length; i++){
+    if(text[i].length > maxSize){
+      maxSize = text[i].length;
+    }
+  }
+
+  for(var i=0; i<text.length; i++){
+    if(!justifyLeft){
+      if(text[i].length < maxSize){
+        var temp = "";
+        var spaces = maxSize - text[i].length;
+        for(var j=0; j<spaces; j++){
+            temp += ' ';
+        }
+        temp += text[i];
+        text[i] = temp;
+      }
+    }
+  }
+
+  document.getElementById("text").value = text.join('\n');
+};
+</script>
+</body>
+
+</html>

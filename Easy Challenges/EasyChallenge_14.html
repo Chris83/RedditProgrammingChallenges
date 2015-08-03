@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <title>Easy Challenge #014</title>
+</head>
+
+<body>
+  <h3>Enter Items You Want Reversed:</h3>
+
+  <form>
+    <input type="text" placeholder="Data" id="data"></input>
+    <input type="text" placeholder="Size of Chunks" id="blocks"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+  <div id="perms"></div>
+
+<script type="text/javascript">
+var run = function(){
+  var elements = document.getElementById("data").value.split(" ");
+  var chunkSize = document.getElementById("blocks").value;
+
+  var reveresed = [];
+
+  while(elements.length >= chunkSize){
+    reveresed.push(elements.splice(0, chunkSize).reverse());
+  }
+
+  if(elements.length > 0){
+    reveresed.push(elements.reverse());
+  }
+
+  console.log(reveresed.join(","));
+};
+</script>
+</body>
+
+</html>
