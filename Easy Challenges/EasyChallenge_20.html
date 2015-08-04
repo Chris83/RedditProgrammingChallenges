@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>Easy Challenge #020</title>
+</head>
+
+<body>
+  <h3>Find All of the Primes Under 2000?</h3>
+
+  <form>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var foundPrimes = [];
+  var possiblePrimes = [];
+  for(var i=2; i<2000; i++){
+    possiblePrimes[i] = true;
+  }
+
+  for(var i=2; i*i<2000; i++){
+    if(possiblePrimes[i]){
+      for(var j=2; i*j<2000; j++){
+        if(possiblePrimes[i*j]){
+          possiblePrimes[i*j] = false;
+        }
+      }
+    }
+  }
+
+  for(var i=2; i<2000; i++){
+    if(possiblePrimes[i]){
+      foundPrimes.push(i);
+    }
+  }
+  console.log(foundPrimes.join(", "));
+};
+</script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<html>
+
+<head>
+  <title>Easy Challenge #017</title>
+</head>
+
+<body>
+  <h3>How High Do You Want a Pyramid?</h3>
+
+  <form>
+    <input type="number" placeholder="Height" id="h"></input>
+    <input type="radio" name="style" id="normal" checked>Normal
+    <input type="radio" name="style" id="reverse">Reversed
+    <input type="radio" name="style" id="right">Justify Right
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var height = document.getElementById("h").value;
+  var layer = "";
+
+  if(document.getElementById("reverse").checked){
+    for(var i=height; i>0; i--){
+      layer = "";
+      for(var j=i; j>0; j--){
+        layer += "@";
+      }
+      console.log(layer);
+    }
+  }else if(document.getElementById("right").checked){
+    for(var i=0; i<=height; i++){
+      layer = "";
+      for(var j=0; j<height-i; j++){
+        layer += " ";
+      }
+      for(var j=0; j<i; j++){
+        layer += "@";
+      }
+      console.log(layer);
+    }
+  }else{
+    for(var i=0; i<=height; i++){
+      layer = "";
+      for(var j=0; j<i; j++){
+        layer += "@";
+      }
+      console.log(layer);
+    }
+  }
+};
+</script>
+</body>
+
+</html>

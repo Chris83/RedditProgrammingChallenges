@@ -1,0 +1,50 @@
+<html>
+
+<head>
+  <title>Easy Challenge #018</title>
+</head>
+
+<body>
+  <h3>Enter a Phone Number to Convert Letters to Numbers:</h3>
+
+  <form>
+    <input type="text" placeholder="Phone Number" id="phone"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var phoneNumber = document.getElementById("phone").value.toLowerCase();
+  var conversionHelper = {"a" : 2, "b" : 2, "c" : 2,
+                          "d" : 3, "e" : 3, "f" : 3,
+                          "g" : 4, "h" : 4, "i" : 4,
+                          "j" : 5, "k" : 5, "l" : 5,
+                          "m" : 6, "n" : 6, "o" : 6,
+                          "p" : 7, "q" : 7, "r" : 7, "s" : 7,
+                          "t" : 8, "u" : 8, "v" : 8,
+                          "w" : 9, "x" : 9, "y" : 9, "z" : 9};
+
+  phoneNumber = phoneNumber.split("");
+
+  for(var i=0; i<phoneNumber.length; i++){
+    if(conversionHelper[phoneNumber[i]] !=  undefined){
+      phoneNumber[i] = conversionHelper[phoneNumber[i]];
+    }
+  }
+
+  phoneNumber = phoneNumber.join("").replace(/\D/g, '');
+
+  if(phoneNumber.length == 11){
+    phoneNumber = [phoneNumber.slice(0,1), '-', phoneNumber.slice(1,4), '-', phoneNumber.slice(4,7), '-', phoneNumber.slice(7)].join('');
+  }else if(phoneNumber.length == 10){
+    phoneNumber = [phoneNumber.slice(0,3), '-', phoneNumber.slice(3,6), '-', phoneNumber.slice(6)].join('');
+  }else if(phoneNumber.length == 7){
+    phoneNumber = [phoneNumber.slice(0,3), '-', phoneNumber.slice(3)].join('');  
+  }
+
+  console.log(phoneNumber);
+};
+</script>
+</body>
+
+</html>
