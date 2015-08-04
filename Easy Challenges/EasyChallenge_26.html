@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <title>Easy Challenge #026</title>
+</head>
+
+<body>
+  <h3>Enter a string you want doubles removed from:</h3>
+
+  <form>
+    <input type="text" placeholder="String" id="data"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var data = document.getElementById("data").value.split('');
+  var doubles = [];
+
+  for(var i=0; i<data.length-1; i++){
+    if(data[i] === data[i+1]){
+      doubles.push(data.splice(i, 1));
+    }
+  }
+
+  console.log(data.join(''));
+  console.log(doubles.join(''));
+}
+</script>
+</body>
+
+</html>

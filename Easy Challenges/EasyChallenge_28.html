@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <title>Easy Challenge #028</title>
+</head>
+
+<body>
+  <h3>Enter a list of integers to see if there are any dupicates(CSV format):</h3>
+
+  <form>
+    <input type="text" placeholder="List of Integers" id="ints"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var data = document.getElementById("ints").value.split(',');
+  var duplicatesKeys = [];
+  var duplicates = [];
+
+  for(var i=0; i<data.length; i++){
+    var t = Number(data[i]);
+    if(duplicatesKeys[t] === undefined){
+      duplicatesKeys[t] = 0;
+    }else{
+      duplicatesKeys[t]++;
+    }
+  }
+
+  for (var k in duplicatesKeys){
+    if (duplicatesKeys.hasOwnProperty(k)) {
+         if(duplicatesKeys[k] > 0){
+           duplicates.push(k);
+         }
+    }
+  }
+
+  console.log(duplicates.join(','));
+}
+</script>
+</body>
+
+</html>

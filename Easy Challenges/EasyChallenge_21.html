@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <title>Easy Challenge #021</title>
+</head>
+
+<body>
+  <h3>Enter a number to find the next biggest number with those digits:</h3>
+
+  <form>
+    <input type="text" placeholder="Enter a Number" id="num"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var number = document.getElementById("num").value;
+
+  var temp = number.split('').reverse();
+  var nextNumber = null;
+
+  var FindNextNumber = function(start, digits){
+    var d = digits;
+    for(var i=start; i<temp.length-1; i++){
+      if(d[i] > d[i+1]){
+        var t = d[i+1];
+        d[i+1] = d[i];
+        d[i] = t;
+        i = d.length-1;
+      }
+    }
+    var tempNumber =  d.reverse().join('');
+    if(nextNumber == null ||  nextNumber > tempNumber && tempNumber > Number(number)){
+      nextNumber = tempNumber;
+    }
+
+    if(start == 0 && start < digits.length-1){
+      FindNextNumber(start+1, digits);
+    }
+  }
+
+  FindNextNumber(0, temp);
+
+  console.log(nextNumber);
+};
+</script>
+</body>
+
+</html>

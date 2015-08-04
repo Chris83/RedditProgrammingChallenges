@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <title>Easy Challenge #023</title>
+</head>
+
+<body>
+  <h3>Enter a list to be split(CSV format):</h3>
+
+  <form>
+    <input type="text" placeholder="List" id="l"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var list = document.getElementById("l").value.split(',');
+
+  var firstHalf = list.splice(0, Math.floor(list.length/2)).join(',');
+  var secondHalf = list.join(',');
+
+  console.log(firstHalf);
+  console.log(secondHalf);
+};
+</script>
+</body>
+
+</html>

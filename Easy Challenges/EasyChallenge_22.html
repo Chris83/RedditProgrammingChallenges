@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <title>Easy Challenge #022</title>
+</head>
+
+<body>
+  <h3>Enter two lists to be joined with out duplicates(CSV format):</h3>
+
+  <form>
+    <input type="text" placeholder="List 1" id="l1"></input>
+    <input type="text" placeholder="List 2" id="l2"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var listOne = document.getElementById("l1").value;
+  var listTwo = document.getElementById("l2").value;
+
+  var newList = listOne.split(',').concat(listTwo.split(','));
+
+  for(var i=0; i<newList.length; i++){
+    for(var j=i+1; j<newList.length; j++){
+      if(newList[i] === newList[j]){
+        newList.splice(j--, 1);
+      }
+    }
+  }
+
+  console.log(newList.join(','));
+};
+</script>
+</body>
+
+</html>

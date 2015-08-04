@@ -1,0 +1,38 @@
+<html>
+
+<head>
+  <title>Easy Challenge #025</title>
+</head>
+
+<body>
+  <h3>Enter a list candidates and their vote counts(CSV format):</h3>
+
+  <p>Example: John Smith,15678,Joe Blow,18678</p>
+
+  <form>
+    <input type="text" placeholder="Vote Data" id="data"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var votes = document.getElementById("data").value.split(',');
+  var voteTotal = 0;
+  var voteWinner = "No One";
+
+  for(var i=1; i<votes.length; i+=2){
+    voteTotal += Number(votes[i]);
+  }
+
+  for(var i=1; i<votes.length; i+=2){
+    if(Number(votes[i]) > voteTotal/2){
+      voteWinner = votes[--i];
+    }
+  }
+
+  console.log(voteWinner);
+}
+</script>
+</body>
+
+</html>
