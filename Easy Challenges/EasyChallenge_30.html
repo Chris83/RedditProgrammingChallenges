@@ -1,0 +1,68 @@
+<html>
+
+<head>
+  <title>Easy Challenge #030</title>
+</head>
+
+<body>
+  <h3>Enter a list of integers(CSV format) and a target sum:</h3>
+
+  <form>
+    <input type="text" placeholder="Ingeters" id="ints"></input>
+    <input type="text" placeholder="Target Sum" id="sum"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var integers = document.getElementById("ints").value.split(',');
+  var target = Number(document.getElementById("sum").value);
+
+  var solution = [];
+
+  var midPoint = Math.floor(integers.length/2); // incase we don't find a middle point we will just start at the actuall middle
+  var testPoint = midPoint + 1;
+
+  integers.sort(function(a,b){return a-b;});
+
+  // convert all input to numbers and find our middle point
+  for(var i=0; i<integers.length; i++){
+    integers[i] = Number(integers[i]);
+    if(integers[i]*2 > target &&  midPoint == Math.floor(integers.length/2)){
+      midPoint = i;
+    }
+  }
+
+  while(true){
+    console.log(testPoint);
+    if(testPoint < 0 || testPoint >= integers.length){
+      break;
+    }
+
+    var sum = integers[midPoint] + integers[testPoint];
+    console.log("testing:"+sum);
+    if(sum == target){
+      solution.push(integers[midPoint]);
+      solution.push(integers[testPoint]);
+      break;
+    }else if(sum > target){
+      testPoint--;
+      if(testPoint == midPoint){
+        testPoint--;
+      }
+    }else if(sum < target){
+      testPoint++;
+      if(testPoint == midPoint){
+        testPoint++;
+      }
+    }
+
+
+  }
+
+  console.log(solution.join("+"));
+}
+</script>
+</body>
+
+</html>

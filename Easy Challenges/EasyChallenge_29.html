@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <title>Easy Challenge #029</title>
+</head>
+
+<body>
+  <h3>Enter a string to see if it is a palindrome:</h3>
+
+  <form>
+    <input type="text" placeholder="Palindrome" id="pali"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var data = document.getElementById("pali").value.replace(/\W/g, '').toLowerCase().split('');
+  var half = [];
+  var isPalindromic = true;
+
+  half = data.splice(Math.ceil(data.length/2)).reverse();
+
+  for(var i=0; i<half.length; i++){
+    if(data[i] != half[i]){
+      isPalindromic = false;
+      break;
+    }
+  }
+
+  console.log(isPalindromic);
+}
+</script>
+</body>
+
+</html>
