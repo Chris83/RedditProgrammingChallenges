@@ -1,0 +1,54 @@
+<html>
+
+<head>
+  <title>Easy Challenge #031</title>
+</head>
+
+<body>
+  <h3>Enter two base-26 numbers(A-Z) to be multiplied:</h3>
+
+  <form>
+    <input type="text" placeholder="Number 1" id="num1"></input>
+    <input type="text" placeholder="Number 2" id="num2"></input>
+    <input type="button" value="Enter" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var number1 = document.getElementById("num1").value.toUpperCase();
+  var number2 = document.getElementById("num2").value.toUpperCase();
+
+  var helper_b26tob10 = {"A":0, "B":1, "C":2, "D":3, "E":4, "F":5, "G":6, "H":7, "I":8, "J":9, "K":10, "L":11, "Y":12,
+                         "M":13, "N":14, "O":15, "P":16, "Q":17, "R":18, "S":19, "T":20, "U":21, "V":22, "W":23, "X":24, "Z":25};
+  var helper_b10tob26 = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "Y",
+                         "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Z"];
+
+  var b26_b10 = function(num){
+    num = num.split('').reverse();
+    var b10 = 0;
+    for(var i=0; i<num.length; i++){
+      b10 += helper_b26tob10[num[i]] * Math.pow(26, i);
+    }
+    return b10;
+  };
+
+  var b10_b26 = function(num){
+    var b26 = "";
+    for(var i=10; i>=0; i--){
+        var t = Math.floor(num / Math.pow(26, i));
+
+        if(t >= 0){
+          b26 += helper_b10tob26[t];
+        }
+
+        num = num % Math.pow(26, i);
+    }
+    return b26.replace(/^[A]*/, '');//remove any leading A values since A = 0
+  };
+
+  console.log(b10_b26(b26_b10(number1)*b26_b10(number2)));
+}
+</script>
+</body>
+
+</html>
