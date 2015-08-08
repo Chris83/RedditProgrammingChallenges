@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <title>Easy Challenge #032</title>
+</head>
+
+<body>
+  <h3>Place a roulette bet, American style wheel:</h3>
+
+  <form>
+    <select id="specialBet">
+      <option value=0>0</option>
+      <option value=0>00</option>
+      <option value=0>Straight Up</option>
+      <option value=1>Row</option>
+      <option value=1>Split</option>
+      <option value=2>Basket</option>
+      <option value=2>Street</option>
+      <option value=3>Corner</option>
+      <option value=4>Top Line</option>
+      <option value=5>Six Line</option>
+      <option value=6>1st Column</option>
+      <option value=6>2nd Column</option>
+      <option value=6>3rd Column</option>
+      <option value=6>1st Dozen</option>
+      <option value=6>2nd Dozen</option>
+      <option value=6>3rd Dozen</option>
+      <option value=7>Odd</option>
+      <option value=7>Even</option>
+      <option value=7>Red</option>
+      <option value=7>Black</option>
+      <option value=7>1-18</option>
+      <option value=7>19-36</option>
+    </select>
+    <input type="text" placeholder="Bet amount" id="bet"></input>
+    <input type="button" value="Bet" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var betOdds = document.getElementsByTagName("option")[document.getElementById("specialBet").selectedIndex].value;
+  var betAmount = Number(document.getElementById("bet").value);
+
+  var betInfo = [{"odds":1, "payout":37}, {"odds":2, "payout":18}, {"odds":3, "payout":11.667}, {"odds":4, "payout":8.5}, {"odds":5, "payout":6.6},
+                 {"odds":6, "payout":5.33}, {"odds":12, "payout":2.167}, {"odds":18, "payout":1.111}];
+
+  var spin = Math.floor((Math.random() * 38) + 1);
+
+  if(spin > betInfo[betOdds].odds){
+    console.log("You lost.")
+  }else{
+    console.log("You won $" + (Math.round(betAmount * betInfo[betOdds].payout * 100) / 100) + "!");
+  }
+}
+</script>
+</body>
+
+</html>
