@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title>Easy Challenge #033</title>
+</head>
+
+<body>
+  <h3>Answer the question, exit to stop:</h3>
+
+  <p id="question">12 * 12 = </p>
+
+  <form>
+    <input type="text" placeholder="Answer" id="ans"></input>
+    <input type="button" value="Bet" onclick="run();" id="run">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var answer = document.getElementById("ans").value;
+  var index = 0;
+
+  var questions = ["12 * 12 =", "What is reddit?", "Translate: hola"];
+  var answers = ["144", "website with cats", "hello"];
+
+  if(answer == "exit"){
+    console.log("Goodbye.")
+    document.getElementById("run").disabled = true;
+  }else{
+    if(answer == answers[index]){
+      console.log("Correct!");
+      document.getElementById("ans").value = '';
+      index = Math.floor((Math.random() * questions.length));
+      document.getElementById("question").innerHTML = questions[index];
+    }else{
+      console.log("Guess again.")
+    }
+  }  
+}
+</script>
+</body>
+
+</html>
