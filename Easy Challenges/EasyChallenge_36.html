@@ -1,0 +1,41 @@
+<html>
+
+<head>
+  <title>Easy Challenge #036</title>
+</head>
+
+<body>
+  <h3>Learn the answer to the 1000 lockers problem:</h3>
+
+  <form>
+    <input type="button" value="Run" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var lockers = [];
+  for(var i=0; i<=1000; i++){
+    lockers[i] = false;
+  }
+
+  for(var student=1; student<1001; student++){
+    for(var locker=student; locker<1001; locker += student){
+      lockers[locker] = !lockers[locker];
+    }
+  }
+
+  var lockersOpen = 0;
+  var whichLockers = "";
+  for(var i=1; i<1001; i++){
+    if(lockers[i]){
+      lockersOpen++;
+      whichLockers += i +", ";
+    }
+  }
+  console.log("Lockers left open: " + lockersOpen);
+  console.log("Lockers that are open: " + whichLockers.substring(0, whichLockers.length-2));
+}
+</script>
+</body>
+
+</html>

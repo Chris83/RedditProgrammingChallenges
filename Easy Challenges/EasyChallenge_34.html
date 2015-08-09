@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <title>Easy Challenge #034</title>
+</head>
+
+<body>
+  <h3>Enter a List of three integers(CSV format):</h3>
+  <p>The two largest ones will have their squares added together.</p>
+
+  <form>
+    <input type="text" placeholder="Integers" id="ints"></input>
+    <input type="button" value="Run" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var integers = document.getElementById("ints").value.split(',').sort(function(a,b){return b-a});
+
+  console.log(integers[0]*integers[0] + integers[1]*integers[1]);
+}
+</script>
+</body>
+
+</html>

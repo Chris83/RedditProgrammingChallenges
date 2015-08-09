@@ -7,34 +7,34 @@
 <body>
   <h3>Answer the question, exit to stop:</h3>
 
-  <p id="question">12 * 12 = </p>
+  <p id="question">12 * 12 =</p>
 
   <form>
     <input type="text" placeholder="Answer" id="ans"></input>
-    <input type="button" value="Bet" onclick="run();" id="run">
+    <input type="button" value="Run" onclick="run();" id="runBtn">
   </form>
 
 <script type="text/javascript">
 var run = function(){
+  var question = document.getElementById("question").innerHTML;
   var answer = document.getElementById("ans").value;
-  var index = 0;
 
   var questions = ["12 * 12 =", "What is reddit?", "Translate: hola"];
-  var answers = ["144", "website with cats", "hello"];
+  var answers = {"12 * 12 =":"144", "What is reddit?":"website with cats", "Translate: hola":"hello"};
 
   if(answer == "exit"){
     console.log("Goodbye.")
-    document.getElementById("run").disabled = true;
+    document.getElementById("runBtn").disabled = true;
   }else{
-    if(answer == answers[index]){
+    if(answer == answers[question]){
       console.log("Correct!");
       document.getElementById("ans").value = '';
-      index = Math.floor((Math.random() * questions.length));
+      var index = Math.floor((Math.random() * questions.length));
       document.getElementById("question").innerHTML = questions[index];
     }else{
       console.log("Guess again.")
     }
-  }  
+  }
 }
 </script>
 </body>

@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <title>Easy Challenge #035</title>
+</head>
+
+<body>
+  <h3>Enter an integer to be turned into a pyramid:</h3>
+
+  <form>
+    <input type="text" placeholder="Integer" id="num"></input>
+    <input type="button" value="Run" onclick="run();">
+  </form>
+
+<script type="text/javascript">
+var run = function(){
+  var maxSize = Number(document.getElementById("num").value);
+  var counter = 0;
+  var row = 1;
+  var pyramid = [];
+
+  while(counter <= maxSize){
+    var str = "";
+    for(var i=0; i<row; i++){
+      counter++;
+      str += counter + " ";
+    }
+    if(counter <= maxSize){
+      pyramid.push(str);
+      row++;
+    }
+  }
+  for(var i=pyramid.length-1; i>=0; i--){
+    console.log(pyramid[i]);
+  }
+}
+</script>
+</body>
+
+</html>
